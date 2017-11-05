@@ -60,70 +60,7 @@ Graph.prototype = {
 					 return false;
 				 }
 		}
-
-		/*
-		let slope = (node2.y - node1.y)/(node2.x - node1.x);
-		if(slope == Infinity || slope == -Infinity) {
-			slope = 0;
-		}
-		let b = -node1.x*slope + node1.y;
-
-		let line; 
-		if(slope == 0 && node2.x - node1.x == 0) {
-			line = {vertical: node1.x};
-		}
-		else {
-			line = {slope, b}; 
-		}
-
-		for (let wall of walls) {
-			//left side and right sides
-			if (this.verticalLineCollision(line, wall.x, wall, node1, node2) ||
-				this.verticalLineCollision(line, wall.x + wall.width, wall, node1, node2)) {
-				return false;
-			}
-			//top and bottom
-			if (this.horizontalLineCollision(line, wall.y, wall, node1, node2) ||
-				this.horizontalLineCollision(line, wall.y + wall.height, wall, node1, node2)) {
-				return false;
-			}
-		}
-		*/
-
 		return true;
-	},
-
-	horizontalLineCollision: function (line, wallLineY, wall, node1, node2) {
-		if (line.vertical === undefined) {
-			let point = line.slope * wall.x + line.b;
-			if (point <= wall.y + wall.height && point >= wall.y &&
-				wallLineY >= Math.min(node1.y, node2.y) && wallLineY <= Math.max(node1.y, node2.y)) {
-				return true;
-			}
-		}
-		else {
-
-		}
-
-		return false;
-	},
-
-	verticalLineCollision: function(line, wallLineX, wall, node1, node2) {
-		if(line.vertical === undefined) {
-			let point = line.slope*wallLineX + line.b;
-			if(point <= wall.y+wall.height && point >= wall.y && 
-				 wallLineX >= Math.min(node1.x,node2.x) && wallLineX <= Math.max(node1.x,node2.x)) {
-				return true;
-			}
-		}
-		else {
-			if(wallLineX == line.vertical && Math.min(node1.y,node2.y) <= wall.y 
-				 && Math.max(node1.y,node2.y) >= wall.y+wall.height) {
-				return true;
-			}
-		}
-
-		return false;
 	},
 
 	allNodesInSphere: function(x,y,radius,excludingNodeId) {
