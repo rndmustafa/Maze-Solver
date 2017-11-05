@@ -1,0 +1,31 @@
+.bar {
+    position: fixed;
+}
+
+button {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #34d976;
+    padding: 12px 20px 10px 20px;
+    border: solid #000000 1px;
+    text-decoration: none;
+}
+
+select {
+   border: 0;
+   color: white;
+   background: transparent;
+   font-size: 20px;
+   padding: 0px 10px;
+   margin: 0px 0px 0px 0px;
+   -webkit-appearance: none;
+   overflow:hidden;
+   width:240px;
+   height:48px;
+   background: #34d976;
+   border: 1px solid black;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Maze Solver</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body oncontextmenu="return false;">
+
+    <div class="bar">
+      <button id="reset" onclick="reset()">Reset</button>
+      <button id="start-search" onclick="startSearch()">Start Search</button>
+      <select id="dropdown">
+        <option>Breadth First Search</option>
+        <option>Pineapples</option>
+        <option>Chocklate</option>
+        <option>Pancakes</option>
+      </select>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <script src="source/algorithms.js"></script>
+    <script src="source/node.js"></script>
+    <script src="source/wall.js"></script>
+    <script src="source/graph.js"></script>
+    <script src="source/main.js"></script>
+    
+  </body>
+</html>
