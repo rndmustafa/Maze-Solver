@@ -37,6 +37,10 @@ function startSearch() {
 			case "Breadth First Search":
 				searchInfo = breadthFirstSearch(startNode, endNode, graph);
 				break;
+
+			case "Depth First Search":
+				searchInfo = depthFirstSearch(startNode,endNode, graph);
+				break;
 		}
 
 		colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
