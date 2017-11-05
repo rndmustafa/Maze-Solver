@@ -93,6 +93,12 @@ Graph.prototype = {
 		ctx.moveTo(x1,y1);
 		ctx.lineTo(x2,y2);
 		ctx.stroke();
+	},
+
+	resetColors: function() {
+		for(let i = 2; i < this.nodes.length; i++) {
+			this.nodes[i].color = "yellow";
+		}
 	}
 
 }

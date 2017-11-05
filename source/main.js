@@ -24,28 +24,31 @@ function reset(){
 }
 
 function startSearch() {
-	if(state == "create") {
+	if (state == "create") {
 		//graph.maxDistance = parseInt(prompt("Max Distance"));
 		state = "searching";
-		graph.createNodes(startNode.x, startNode.y, 
+		graph.createNodes(startNode.x, startNode.y,
 			endNode.x, endNode.y, walls);
 		graph.linkNodes(walls);
-
-		let algo = document.getElementById("dropdown").value;
-		let searchInfo;
-		switch (algo) {
-			case "Breadth First Search":
-				searchInfo = breadthFirstSearch(startNode, endNode, graph);
-				break;
-
-			case "Depth First Search":
-				searchInfo = depthFirstSearch(startNode,endNode, graph);
-				break;
-		}
-
-		colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
-		setTimeout(function() {colorNodes(searchInfo.path, "grey", 1);}, (animationSpeed+20)*searchInfo.discovered.length);
 	}
+	else if (state == "searching") {
+		graph.resetColors();
+	}
+
+	let algo = document.getElementById("dropdown").value;
+	let searchInfo;
+	switch (algo) {
+		case "Breadth First Search":
+			searchInfo = breadthFirstSearch(startNode, endNode, graph);
+			break;
+
+		case "Depth First Search":
+			searchInfo = depthFirstSearch(startNode, endNode, graph);
+			break;
+	}
+
+	colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
+	setTimeout(function () { colorNodes(searchInfo.path, "grey", 1); }, (animationSpeed + 20) * searchInfo.discovered.length);
 
 }
 
