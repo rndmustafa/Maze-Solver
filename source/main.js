@@ -47,8 +47,10 @@ function startSearch() {
 			break;
 	}
 
-	colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
-	setTimeout(function () { colorNodes(searchInfo.path, "grey", 1); }, (animationSpeed + 20) * searchInfo.discovered.length);
+	if (searchInfo != undefined && searchInfo.discovered.length > 1) {
+		colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
+		setTimeout(function () { colorNodes(searchInfo.path, "grey", 1); }, (animationSpeed + 20) * searchInfo.discovered.length);
+	}
 
 }
 
@@ -64,6 +66,7 @@ function colorNodes(nodeList, color, index) {
 
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
+ctx.imageSmoothingEnabled = false;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
