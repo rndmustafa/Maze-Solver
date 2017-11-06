@@ -45,13 +45,17 @@ function startSearch() {
 		case "Depth First Search":
 			searchInfo = depthFirstSearch(startNode, endNode, graph);
 			break;
+
+		case "A* Search":
+			searchInfo = aStarSearch(startNode, endNode, graph);
+			break;
 	}
 
 	if (searchInfo.discovered.length > 1) {
 		colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
 	}
 	if (searchInfo.path.length) {
-		setTimeout(function () { colorNodes(searchInfo.path, "grey", 1); }, (animationSpeed + 20) * searchInfo.discovered.length);
+		setTimeout(function () { colorNodes(searchInfo.path, "#5E5EAE", 1); }, (animationSpeed + 30) * searchInfo.discovered.length);
 	}
 
 }
@@ -69,8 +73,8 @@ function colorNodes(nodeList, color, index) {
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth*0.99;
+canvas.height = window.innerHeight*0.97;
 
 canvas.onmousedown = function (event) {
 	switch (state) {

@@ -2,7 +2,7 @@ function Graph() {
 	//Index of node and id are the same 
 	//e.g. Node with id 3 is in index 3. 
 	this.nodes = [];
-	this.maxDistance = 125;
+	this.maxDistance = 100;
 }
 
 Graph.prototype = {
