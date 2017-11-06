@@ -21,7 +21,7 @@ Node.prototype = {
 			ctx.font = '20px serif';
 
 			let adjustX = 5;
-			if(this.id >= 100) { adjustX += 3; }
+			if(this.id >= 100) { adjustX += 10; }
 			else if(this.id >= 10) {adjustX += 5;}
 			ctx.fillText(this.id, this.x-adjustX, this.y+5);
     }
