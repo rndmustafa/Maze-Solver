@@ -47,8 +47,10 @@ function startSearch() {
 			break;
 	}
 
-	if (searchInfo != undefined && searchInfo.discovered.length > 1) {
+	if (searchInfo.discovered.length > 1) {
 		colorNodes(searchInfo.discovered, "rgba(50,205,50,0.8)", 1);
+	}
+	if (searchInfo.path.length) {
 		setTimeout(function () { colorNodes(searchInfo.path, "grey", 1); }, (animationSpeed + 20) * searchInfo.discovered.length);
 	}
 

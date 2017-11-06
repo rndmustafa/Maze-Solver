@@ -27,6 +27,8 @@ function breadthFirstSearch(start, end, graph) {
 
     discovered.push(current);
   }
+
+  return {discovered, path:[]};
 }
 
 function depthFirstSearch(start,end, graph) {
@@ -58,6 +60,8 @@ function depthFirstSearch(start,end, graph) {
 
     discovered.push(current);
   }
+
+  return {discovered, path:[]};  
 }
 
 function getPath(node, cameFrom) {
