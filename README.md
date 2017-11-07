@@ -8,8 +8,9 @@ Green node is starting node, red node is ending.
 
 ## TODO List:
 * Improve node generation
-* Use async/await instead of timeouts 
+* Use async/await instead of timeouts
 * Add more search algorithms
-* Move the starting node to the ending node
-* Better painting tools 
+* Better painting tools
 * Preset mazes
+* Better color scheme and style. Add Animations.
+* Prevent spamming of start search
