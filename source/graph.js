@@ -3,6 +3,7 @@ function Graph() {
 	//e.g. Node with id 3 is in index 3. 
 	this.nodes = [];
 	this.maxDistance = 100;
+	this.showNodeIds = false;
 }
 
 Graph.prototype = {
@@ -76,20 +77,21 @@ Graph.prototype = {
 	draw: function() {
 		for(let i = 0; i < this.nodes.length; i++) {
 			for(let neighbor of this.nodes[i].edges) {
-				if(neighbor.id > i) {
+				if(neighbor.id > i) {				
 					this.drawLine(this.nodes[i].x, this.nodes[i].y, neighbor.x, neighbor.y);
 				}
 			}
 		}
 
 		for(let i = this.nodes.length-1; i >= 0; i--) {
-			this.nodes[i].draw();
+			this.nodes[i].draw(this.showNodeIds);
 		}
 	},
 
 	drawLine: function(x1, y1, x2, y2) {
 		ctx.beginPath();
-		ctx.strokeStyle = "yellow";
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = "#008080";
 		ctx.moveTo(x1,y1);
 		ctx.lineTo(x2,y2);
 		ctx.stroke();

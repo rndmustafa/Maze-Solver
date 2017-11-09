@@ -8,15 +8,16 @@ function Node(x, y, color, id=undefined) {
 }
 
 Node.prototype = {
-	draw: function() {
+	draw: function(showId=false) {
 		ctx.beginPath();
     ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
 		ctx.fill();
 		ctx.strokeStyle = "black";
+		ctx.lineWidth = 1;		
     ctx.stroke();
 
-    if(this.id >= 2) {
+    if(showId && this.id >= 2) {
     	ctx.fillStyle = "black";
 			ctx.font = '20px serif';
 

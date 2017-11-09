@@ -7,7 +7,8 @@ function Wall(x, y, width, height) {
 
 Wall.prototype = {
 	draw: function () {
-		ctx.fillStyle = "#1abdc9";
+		ctx.fillStyle = "#5CD9EF";
+		ctx.lineWidth = 2;
 		ctx.fillRect(this.x, this.y, this.width, this.height);
 		ctx.fillStyle = "black";
 		ctx.strokeStyle = "black";

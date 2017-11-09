@@ -1,5 +1,5 @@
 function loop() {
-	ctx.fillStyle = 'grey';
+	ctx.fillStyle = '#e8e9ea';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 	for(let wall of walls) {
@@ -149,8 +149,8 @@ let dragging = null;
 let walls = [];
 
 let graph = new Graph();
-let startNode = new Node(canvas.width/2, canvas.height/2, "green", 0);
-let endNode = new Node(canvas.width/2, canvas.height/2-60, "red", 1);
+let startNode = new Node(canvas.width/2, canvas.height/2, "#01DD00", 0);
+let endNode = new Node(canvas.width/2, canvas.height/2-60, "#EE4400", 1);
 graph.addNode(startNode);
 graph.addNode(endNode);
 
