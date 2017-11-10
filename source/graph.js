@@ -15,27 +15,19 @@ Graph.prototype = {
 		node1.edges.push(node2);
 	},
 
-	createNodes: function(startNodeX, startNodeY, endNodeX, endNodeY, walls) {
+	createNodes: function (walls) {
 		let area = 0;
-		for(let wall of walls) {
-			area += wall.width*wall.height;
+		for (let wall of walls) {
+			area += wall.width * wall.height;
 		}
 		let wallRatio = area / (canvas.width * canvas.height);
-		let distance = this.maxDistance * (1-wallRatio);
-		
-		for(let i = 25; i < canvas.height; i += distance) {
-			for(let j = 30; j < canvas.width; j += distance) {
+		let distance = this.maxDistance * (1 - wallRatio);
+
+		for (let i = 25; i < canvas.height; i += distance) {
+			for (let j = 30; j < canvas.width; j += distance) {
 				let node = new Node(j, i, "yellow", this.nodes.length);
-				let fail = false;
 
-				for(let wall of walls) {
-					if(node.onWall(wall)) {
-						fail = true;
-						break;
-					}
-				}
-
-				if(!fail) {
+				if (!node.onAnyWall(walls)) {
 					this.addNode(node);
 				}
 			}

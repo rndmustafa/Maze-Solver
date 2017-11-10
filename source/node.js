@@ -45,6 +45,15 @@ Node.prototype = {
 		return false;
 	},
 
+	onAnyWall: function(walls) {
+		for(let wall of walls) {
+			if(this.onWall(wall)) {
+				return true;
+			}
+		}
+		return false;
+	},
+
 	inSphere: function(x,y,radius) {
 		return this.x-this.radius < x+radius && this.x+this.radius > x-radius &&
 		       this.y-this.radius < y+radius && this.y+this.radius > y-radius;

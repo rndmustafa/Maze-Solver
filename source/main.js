@@ -27,8 +27,7 @@ function startSearch() {
 	if (state == "create") {
 		//graph.maxDistance = parseInt(prompt("Max Distance"));
 		state = "searching";
-		graph.createNodes(startNode.x, startNode.y,
-			endNode.x, endNode.y, walls);
+		graph.createNodes(walls);
 		graph.linkNodes(walls);
 	}
 	else if (state == "searching") {
