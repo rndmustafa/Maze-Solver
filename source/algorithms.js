@@ -64,6 +64,44 @@ function depthFirstSearch(start,end, graph) {
   return {discovered, path:[]};  
 }
 
+function bestFirstSearch(start, end, graph) {
+  let discovered = [];
+  let frontier = [start];
+  let cameFrom = new Map();
+  cameFrom.set(start,null);
+
+  let hScore = new Map();
+  hScore.set(start,distance(start,end));
+
+  while(frontier.length) {
+    let current = getLowestScore(frontier, hScore);
+    frontier.splice(frontier.indexOf(current), 1);
+
+    if(current == end) {
+      let path = getPath(current, cameFrom);
+      return {discovered, path};
+    }
+
+    discovered.push(current);
+
+    for(let child of current.edges) {
+      if(discovered.includes(child)) {
+        continue;
+      }
+
+      if(!frontier.includes(child)) {
+        frontier.push(child);
+        cameFrom.set(child,current);
+        hScore.set(child, distance(child,end));
+      }
+      
+    }
+  }
+
+  return {discovered, path:[]};
+
+}
+
 function aStarSearch(start, end, graph) {
   let discovered = [];
   let frontier = [start];

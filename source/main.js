@@ -48,6 +48,10 @@ function startSearch() {
 		case "A* Search":
 			searchInfo = aStarSearch(startNode, endNode, graph);
 			break;
+
+		case "Best First Search":
+			searchInfo = bestFirstSearch(startNode,endNode,graph);
+			break;
 	}
 
 	if (searchInfo.discovered.length > 1) {

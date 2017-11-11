@@ -2,7 +2,7 @@ function Graph() {
 	//Index of node and id are the same 
 	//e.g. Node with id 3 is in index 3. 
 	this.nodes = [];
-	this.maxDistance = 100;
+	this.maxDistance = 80;
 	this.showNodeIds = false;
 }
 
@@ -16,12 +16,7 @@ Graph.prototype = {
 	},
 
 	createNodes: function (walls) {
-		let area = 0;
-		for (let wall of walls) {
-			area += wall.width * wall.height;
-		}
-		let wallRatio = area / (canvas.width * canvas.height);
-		let distance = this.maxDistance * (1 - wallRatio);
+		let distance = this.maxDistance;
 
 		for (let i = 25; i < canvas.height; i += distance) {
 			for (let j = 30; j < canvas.width; j += distance) {
